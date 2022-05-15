@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/imgfundo"
+    android:backgroundTint="#D2000000"
+    android:backgroundTintMode="src_atop"
+    android:visibility="visible"
+    tools:context=".terceira_tela">
+
+    <Button
+        android:id="@+id/bt_salvar_usuario"
+        android:layout_width="306dp"
+        android:layout_height="63dp"
+        android:text="Salvar "
+        android:textColor="#FFFFFF"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.803" />
+
+    <ImageView
+        android:id="@+id/imageView20"
+        android:layout_width="236dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotrblh" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="164dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="216dp"
+        android:text="Cadastro"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/bt_voltar_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/cadastroNome"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        android:background="#B4353232"
+        android:ems="10"
+        android:hint="Digite seu nome"
+        android:inputType="textPersonName"
+        android:paddingStart="50dp"
+        android:paddingLeft="50dp"
+        android:paddingTop="5dp"
+        android:textColorHint="#F0F1F1"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.463" />
+
+    <EditText
+        android:id="@+id/cadastroEmail"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        android:background="#B4353232"
+        android:ems="10"
+        android:hint="Digite seu email"
+        android:inputType="textPersonName"
+        android:paddingStart="50dp"
+        android:paddingLeft="50dp"
+        android:paddingTop="5dp"
+        android:textColorHint="#F0F1F1"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.562" />
+
+    <EditText
+        android:id="@+id/cadastroSenha"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        android:background="#B4353232"
+        android:ems="10"
+        android:hint="Crie uma senha"
+        android:inputType="textPersonName"
+        android:paddingStart="50dp"
+        android:paddingLeft="50dp"
+        android:paddingTop="5dp"
+        android:textColorHint="#F0F1F1"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="28dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cadastroSenha"
+        app:layout_constraintEnd_toEndOf="@+id/cadastroSenha"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="@+id/cadastroSenha"
+        app:layout_constraintTop_toTopOf="@+id/cadastroSenha"
+        app:srcCompat="@drawable/cadeado" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="33dp"
+        android:layout_height="26dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cadastroNome"
+        app:layout_constraintEnd_toEndOf="@+id/cadastroNome"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="@+id/cadastroNome"
+        app:layout_constraintTop_toTopOf="@+id/cadastroNome"
+        app:layout_constraintVertical_bias="0.473"
+        app:srcCompat="@drawable/user" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="35dp"
+        android:layout_height="33dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cadastroEmail"
+        app:layout_constraintEnd_toEndOf="@+id/cadastroEmail"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toStartOf="@+id/cadastroEmail"
+        app:layout_constraintTop_toTopOf="@+id/cadastroEmail"
+        app:layout_constraintVertical_bias="0.466"
+        app:srcCompat="@drawable/gmail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

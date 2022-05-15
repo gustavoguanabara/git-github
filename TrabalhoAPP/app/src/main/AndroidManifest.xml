@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.trabalhoapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TrabalhoAPP">
+        <activity
+            android:name=".Exercicios"
+            android:exported="true" />
+        <activity
+            android:name=".inicioo_tela"
+            android:exported="true"
+            android:label="@string/title_activity_inicio_tela"
+            android:theme="@style/Theme.TrabalhoAPP.NoActionBar" />
+        <activity
+            android:name=".interacao_um"
+            android:exported="true" />
+        <activity
+            android:name=".sexta_tela"
+            android:exported="true" />
+        <activity
+            android:name=".quinta_tela"
+            android:exported="true" />
+        <activity
+            android:name=".quarta_tela"
+            android:exported="true" />
+        <activity
+            android:name=".terceira_tela"
+            android:exported="true" />
+        <activity
+            android:name=".SegundaTela"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

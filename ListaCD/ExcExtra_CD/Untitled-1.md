@@ -1,0 +1,34 @@
+
+- Client ID: 17353b40378f4ea2b60cafa6c70b8b05
+- Client Secret: 9d9186210c274c219c1647d83c9e09c1
+
+URL:
+
+https://accounts.spotify.com/authorize?client_id=17353b40378f4ea2b60cafa6c70b8b05&response_type=code&scope=user-read-currently-playing,user-read-recently-played&redirect_uri=http://localhost/callback/
+
+CODE:
+
+http://localhost/callback/?code=AQCdkNDmfVZ7cm3F1qL1H0jgAf3dBeMmNFmkg-zw7br4ETQ-t5dk5cMCOTYV7nsdsHG9TM7N1387rgsq0XweDItR3_AI__GraVthyugrBCWpcSQZ-4oH_Zvo89CgFNan80ZrOI0P3MHejnIHcAE__0_lnnqG7lD_NjR74j-dn5BTd6ddrAVL4zgkN1puvebMubkHZL2MySRMTNwiLEmKfUIuQ61es_wMgQAMp3qDthQ92qnlm-k
+
+
+
+http://localhost/callback/?code=AQDCiiG8cK9e3KS-_rRbuW3VfahF1lNq2uNJqDkRfkL-5KpGxIaLysT5osHbYH7c09ZICAcfNC9KKX6hveuqAZR5WSuVACUUxs9MLgo3B91_59jDodnIuU7SuWesm1R3YqJX2_nZ59SC0W5DPn-B9nhLGL_DybISD7Ra8eBUA4_ZBjVoWO0swtpoj27X040Jhk9SgsGikIlDwdAo8sqbdF1rMT65JEYS608Os8xX4E8viYXMvlY
+
+
+Base64:
+
+MTczNTNiNDAzNzhmNGVhMmI2MGNhZmE2YzcwYjhiMDU6OWQ5MTg2MjEwYzI3NGMyMTljMTY0N2Q4M2M5ZTA5YzE=
+
+
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Basic MTczNTNiNDAzNzhmNGVhMmI2MGNhZmE2YzcwYjhiMDU6OWQ5MTg2MjEwYzI3NGMyMTljMTY0N2Q4M2M5ZTA5YzE=" -d "grant_type=authorization_code&redirect_uri=http://localhost/callback/&code=AQDCiiG8cK9e3KS-_rRbuW3VfahF1lNq2uNJqDkRfkL-5KpGxIaLysT5osHbYH7c09ZICAcfNC9KKX6hveuqAZR5WSuVACUUxs9MLgo3B91_59jDodnIuU7SuWesm1R3YqJX2_nZ59SC0W5DPn-B9nhLGL_DybISD7Ra8eBUA4_ZBjVoWO0swtpoj27X040Jhk9SgsGikIlDwdAo8sqbdF1rMT65JEYS608Os8xX4E8viYXMvlY" https://accounts.spotify.com/api/token
+
+
+
+
+
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -H "Authorization: Basic MTczNTNiNDAzNzhmNGVhMmI2MGNhZmE2YzcwYjhiMDU6OWQ5MTg2MjEwYzI3NGMyMTljMTY0N2Q4M2M5ZTA5YzE=" -d "grant_type=authorization_code&redirect_uri=http://localhost/callback/&code=http://localhost/callback/?code=AQCdkNDmfVZ7cm3F1qL1H0jgAf3dBeMmNFmkg-zw7br4ETQ-t5dk5cMCOTYV7nsdsHG9TM7N1387rgsq0XweDItR3_AI__GraVthyugrBCWpcSQZ-4oH_Zvo89CgFNan80ZrOI0P3MHejnIHcAE__0_lnnqG7lD_NjR74j-dn5BTd6ddrAVL4zgkN1puvebMubkHZL2MySRMTNwiLEmKfUIuQ61es_wMgQAMp3qDthQ92qnlm-k" https://accounts.spotify.com/api/token
+
+
+refresh token
+
+AQDPD0D95_zz7WwGI7F7nl7vgZ9BUI0GGoO622vCdWW7b1gliP3fXd1Mpd7-psH54hVvG3JJuy5gCPrnjPpuZpx3izb36-b5ISwgKjf0U_l2zdp6E7quR0bg56GRFOJ5vWo
