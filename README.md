@@ -4,3 +4,4 @@ Material do **Curso de Git e GitHub**, disponível **gratuitamente** no canal do
 *criei em italico*
 # Gosto de editar texto
 # Escrevo aqui e testo lá.
+# Um teste por linha de comando.
