@@ -1,341 +1,198 @@
-# 🚀 Dominando Git e GitHub: Guia Completo e Prático
+# 🚀 Guia Prático de Git, GitHub e Markdown
 
 <div align="center">
 
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
-![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Conclu%C3%ADdo-brightgreen?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Em%20Estudo-brightgreen?style=for-the-badge)
 
 <p align="center">
-  <b>Repositório de estudos e manual prático de referência rápida de Versionamento com Git e colaboração no GitHub.</b><br>
-  <i>Baseado nas aulas e na live do curso oficial do Professor Gustavo Guanabara (<a href="https://www.cursoemvideo.com/">Curso em Vídeo</a>).</i>
+  <b>Manual simples e direto para quem está dando os primeiros passos com controle de versão e documentação no GitHub.</b><br>
+  <i>Baseado nas aulas do Professor Gustavo Guanabara (<a href="https://www.cursoemvideo.com/">Curso em Vídeo</a>).</i>
 </p>
 
 </div>
 
 ---
 
-## 📑 Tabela de Conteúdos
+## 📌 O que você vai encontrar aqui
 
-- [Visão Geral](#-visão-geral)
-- [Git vs. GitHub: Diferenças Fundamentais](#-git-vs-github-diferenças-fundamentais)
-- [Arquitetura e Ciclo de Vida dos Arquivos](#-arquitetura-e-ciclo-de-vida-dos-arquivos)
-- [Configuração Inicial do Ambiente](#-configuração-inicial-do-ambiente)
-- [Cheat Sheet: Comandos Essenciais](#-cheat-sheet-comandos-essenciais)
-  - [1. Inicialização e Clonagem](#1-inicialização-e-clonagem)
-  - [2. Fluxo Diário de Trabalho](#2-fluxo-diário-de-trabalho)
-  - [3. Histórico e Comparações](#3-histórico-e-comparações)
-  - [4. Ramificações (Branches) e Mesclagem (Merge)](#4-ramificações-branches-e-mesclagem-merge)
-  - [5. Sincronização com Repositório Remoto](#5-sincronização-com-repositório-remoto)
-  - [6. Desfazendo Alterações e Correções de Erros](#6-desfazendo-alterações-e-correções-de-erros)
-- [O Arquivo `.gitignore`](#-o-arquivo-gitignore)
-- [Manual de Markdown para o GitHub](#-manual-de-markdown-para-o-github)
-- [Boas Práticas: Conventional Commits](#-boas-práticas-conventional-commits)
-- [GitHub Pages e Hospedagem Gratuita](#-github-pages-e-hospedagem-gratuita)
-- [Colaboração Open-Source: Forks e Pull Requests](#-colaboração-open-source-forks-e-pull-requests)
-- [Créditos e Referências](#-créditos-e-referências)
+- [1. O que são Git e GitHub?](#-1-o-que-são-git-e-github)
+- [2. Como funciona o dia a dia no GitHub](#-2-como-funciona-o-dia-a-dia-no-github)
+- [3. Comandos básicos do Git](#-3-comandos-básicos-do-git)
+- [4. Guia Fácil de Markdown (Como deixar o texto bonito)](#-4-guia-fácil-de-markdown-como-deixar-o-texto-bonito)
+- [5. O que é Fork e Pull Request?](#-5-o-que-é-fork-e-pull-request)
+- [6. Créditos e Materiais Originais](#-6-créditos-e-materiais-originais)
 
 ---
 
-## 🎯 Visão Geral
+## 💡 1. O que são Git e GitHub?
 
-Este repositório consolida os fundamentos essenciais de versionamento de código, rastreamento de mudanças e trabalho colaborativo ensinados pelo professor Gustavo Guanabara. O objetivo é servir como uma fonte de consulta imediata para desenvolvedores de qualquer nível técnico.
+Muita gente confunde os dois no começo, mas a diferença é bem simples:
 
----
-
-## ⚖️ Git vs. GitHub: Diferenças Fundamentais
-
-| Característica | Git | GitHub |
+| Ferramenta | O que é na prática | Onde funciona |
 | :--- | :--- | :--- |
-| **Definição** | Sistema de Controle de Versões Distribuído (DVCS). | Plataforma na nuvem para hospedagem de repositórios Git. |
-| **Execução** | Opera localmente na máquina do desenvolvedor (via CLI ou GUI). | Opera em servidores remotos através da web. |
-| **Conexão** | Não requer internet para criar commits, branches ou logs. | Requer internet para sincronização e acesso a serviços remotos. |
-| **Propósito** | Rastrear o histórico temporal e variações de código-fonte. | Facilitar colaboração em equipe, hospedagem, CI/CD e revisão de código. |
-| **Criação** | Desenvolvido por Linus Torvalds em 2005. | Lançado em 2008 (atualmente pertencente à Microsoft). |
+| **Git** | É o programa que guarda o histórico de todas as alterações feitas nos seus arquivos (como uma "máquina do tempo" do código). | **No seu computador** (funciona até sem internet). |
+| **GitHub** | É a rede social e plataforma na nuvem onde você guarda seus projetos e compartilha com outras pessoas. | **Na internet** (acessado pelo navegador ou pelo GitHub Desktop). |
 
 ---
 
-## 🔄 Arquitetura e Ciclo de Vida dos Arquivos
+## 🔄 2. Como funciona o dia a dia no GitHub
 
-O Git divide o fluxo de trabalho em **4 áreas principais**:
+Quando você cria ou edita um projeto, o arquivo passa por **3 etapas simples**:
 
-1. **Working Directory (Diretório de Trabalho):** Onde você cria, edita e apaga arquivos no seu computador.
-2. **Staging Area / Index (Área de Preparação):** Onde você seleciona quais alterações entrarão no próximo commit (`git add`).
-3. **Local Repository (Repositório Local):** O histórico de commits salvo na sua máquina dentro da pasta oculta `.git` (`git commit`).
-4. **Remote Repository (Repositório Remoto):** A versão hospedada na nuvem, no GitHub (`git push` / `git pull`).
+1. **Modificar:** Você edita o arquivo no seu computador (usando o Visual Studio Code, por exemplo).
+2. **Registrar (Commit):** Você salva uma "foto" daquela alteração com uma mensagem explicando o que mudou (ex: *"Adicionei a introdução no README"*).
+3. **Enviar (Push):** Você empurra essa alteração do seu computador para a sua conta no GitHub na nuvem.
 
-### Estados de um Arquivo no Git:
-1. **Untracked (Não rastreado):** Arquivo novo que o Git ainda não monitora.
-2. **Modified (Modificado):** Arquivo já monitorado que sofreu alterações no diretório de trabalho.
-3. **Staged (Preparado):** Arquivo selecionado e pronto para ser gravado no próximo commit.
-4. **Committed (Consolidado):** Dados gravados permanentemente no banco de dados local do Git (`.git`).
+> **Dica:** Se você editar um arquivo direto no site do GitHub, precisa fazer o caminho inverso no seu computador: clicar em **Buscar (Fetch)** e **Puxar (Pull)** no GitHub Desktop para trazer a novidade para a sua pasta local.
 
 ---
 
-## ⚙️ Configuração Inicial do Ambiente
+## 🛠️ 3. Comandos básicos do Git
 
-Após instalar o Git, o primeiro passo obrigatório é definir a identidade do desenvolvedor:
+Mesmo usando programas visuais como o **GitHub Desktop**, vale conhecer os comandos principais usados no terminal:
 
-```bash
-# Definir nome de usuário global
-git config --global user.name "Seu Nome Completo"
-
-# Definir email associado à sua conta do GitHub
-git config --global user.email "seu-email@dominio.com"
-
-# Definir a branch padrão inicial como 'main'
-git config --global init.defaultBranch main
-
-# Configurar o editor de texto padrão (exemplo: VS Code)
-git config --global core.editor "code --wait"
-
-# Listar todas as configurações ativas
-git config --list
-```
-
-### Autenticação Moderna no GitHub:
-> [!NOTE]
-> O GitHub não aceita mais senhas convencionais de conta para operações via linha de comando (`git push`).
-
-- **Opção 1 (Recomendada): Chave SSH**
-  ```bash
-  ssh-keygen -t ed25519 -C "seu-email@dominio.com"
-  cat ~/.ssh/id_ed25519.pub
-  ```
-  *Cole a chave pública em: **GitHub > Settings > SSH and GPG keys > New SSH Key**.*
-- **Opção 2: Personal Access Token (PAT)**
-  *Gere o token em: **GitHub > Settings > Developer Settings > Personal Access Tokens > Tokens (classic)**.*
+| Comando | Para que serve |
+| :--- | :--- |
+| `git clone <link>` | Baixa uma cópia completa de um repositório do GitHub para o seu computador. |
+| `git status` | Mostra quais arquivos foram criados ou alterados na sua pasta. |
+| `git add .` | Prepara todos os arquivos alterados para serem salvos. |
+| `git commit -m "mensagem"` | Grava as alterações no histórico com uma frase explicativa. |
+| `git push` | Envia os registros salvos no computador para o seu GitHub na nuvem. |
+| `git pull` | Baixa as atualizações que estão na nuvem para a sua pasta no computador. |
 
 ---
 
-## 🛠️ Cheat Sheet: Comandos Essenciais
+## 📝 4. Guia Fácil de Markdown (Como deixar o texto bonito)
 
-### 1. Inicialização e Clonagem
+O **Markdown** é uma linguagem simples que usa símbolos do teclado (como `#`, `*` e `-`) para formatar textos no arquivo `README.md` sem precisar usar código HTML complicado.
 
-| Comando | Descrição |
-| :--- | :--- |
-| `git init` | Transforma o diretório atual em um repositório Git local (cria pasta oculta `.git`). |
-| `git clone <URL>` | Clona um repositório remoto inteiro para sua máquina local. |
-
-### 2. Fluxo Diário de Trabalho
-
-| Comando | Descrição |
-| :--- | :--- |
-| `git status` | Exibe o estado dos arquivos (modificados, preparados, não monitorados). |
-| `git add <arquivo>` | Adiciona um arquivo específico à Staging Area. |
-| `git add .` | Adiciona todas as modificações do diretório atual e subdiretórios à Staging Area. |
-| `git commit -m "mensagem"` | Grava as alterações preparadas no repositório com uma mensagem explicativa. |
-| `git commit -am "mensagem"` | Atalho que prepara (`git add`) e commita arquivos já monitorados em uma só instrução. |
-
-### 3. Histórico e Comparações
-
-| Comando | Descrição |
-| :--- | :--- |
-| `git log` | Exibe o histórico detalhado de commits (autor, data, hash, mensagem). |
-| `git log --oneline` | Exibe o histórico de forma compacta (um commit por linha). |
-| `git log --graph --all --decorate --oneline` | Exibe a árvore visual de branches e commits de forma gráfica no terminal. |
-| `git diff` | Mostra as alterações feitas no Working Directory que ainda não foram enviadas para o Stage. |
-| `git diff --staged` | Mostra as diferenças entre o que está no Stage e o último commit efetuado. |
-| `git show <hash_do_commit>` | Exibe detalhes e código alterado em um commit específico. |
-
-### 4. Ramificações (Branches) e Mesclagem (Merge)
-
-As *branches* permitem desenvolver novas funcionalidades ou corrigir bugs em ambientes isolados sem impactar o código principal (`main` ou `master`).
-
-```mermaid
-gitGraph
-    commit id: "C1 (Initial)"
-    commit id: "C2"
-    branch feature/nova-tela
-    checkout feature/nova-tela
-    commit id: "C3 (Feature)"
-    commit id: "C4 (Feature)"
-    checkout main
-    commit id: "C5"
-    merge feature/nova-tela id: "C6 (Merge Commit)"
-    commit id: "C7"
-```
-
-| Comando | Descrição |
-| :--- | :--- |
-| `git branch` | Lista todas as branches locais e indica qual está ativa. |
-| `git branch <nome-da-branch>` | Cria uma nova branch a partir do ponto atual. |
-| `git checkout <nome-da-branch>` | Alterna para a branch especificada. |
-| `git switch <nome-da-branch>` | Alternativa moderna e focada para alternar de branch. |
-| `git checkout -b <nova-branch>` | Cria a nova branch e já alterna para ela em uma única etapa. |
-| `git switch -c <nova-branch>` | Equivalente moderno ao `checkout -b`. |
-| `git merge <nome-da-branch>` | Mescla as alterações da branch informada dentro da branch atual. |
-| `git branch -d <nome-da-branch>` | Remove com segurança uma branch local já mesclada. |
-| `git branch -D <nome-da-branch>` | Força a exclusão de uma branch local mesmo sem mesclagem prévia. |
-
-> [!WARNING]
-> Em caso de **conflito de merge**, o Git marcará os arquivos afetados com `<<<<<<<`, `=======` e `>>>>>>>`. Abra os arquivos, decida qual versão manter, remova as marcações, adicione com `git add .` e finalize com `git commit`.
-
-### 5. Sincronização com Repositório Remoto
-
-| Comando | Descrição |
-| :--- | :--- |
-| `git remote add origin <URL>` | Associa o repositório local a um repositório remoto chamado `origin`. |
-| `git remote -v` | Lista os endereços dos repositórios remotos configurados (fetch e push). |
-| `git push -u origin main` | Envia os commits locais para o servidor remoto e configura a relação upstream. |
-| `git push` | Envia novos commits para a branch rastreada configurada. |
-| `git fetch origin` | Busca informações e commits novos do servidor sem alterar seus arquivos locais. |
-| `git pull origin main` | Baixa os novos commits remotos e mescla automaticamente na sua branch atual (`fetch + merge`). |
-
-### 6. Desfazendo Alterações e Correções de Erros
-
-| Situação | Comando Recomendado | O que acontece |
-| :--- | :--- | :--- |
-| Descartar mudanças não salvas no Working Directory | `git restore <arquivo>` | Restaura o arquivo ao estado do último commit. |
-| Tirar um arquivo da Staging Area (Unstage) | `git restore --staged <arquivo>` | Mantém as alterações, mas retira o arquivo da fila de commit. |
-| Corrigir a mensagem do último commit realizado | `git commit --amend -m "nova mensagem"` | Reescreve a mensagem do último commit local. |
-| Desfazer o último commit mantendo os arquivos no Stage | `git reset --soft HEAD~1` | O commit é desfeito, mas o código continua preparado. |
-| Desfazer o último commit mantendo os arquivos modificados | `git reset --mixed HEAD~1` | O commit é desfeito e os arquivos voltam para modificados. |
-| Descartar commit e todas as alterações permanentemente | `git reset --hard HEAD~1` | **Cuidado:** Apaga permanentemente tudo que foi feito no commit. |
-| Reverter um commit público com segurança | `git revert <hash_do_commit>` | Cria um novo commit invertendo as alterações do commit anterior. |
-
----
-
-## 🚫 O Arquivo `.gitignore`
-
-O `.gitignore` instrui o Git a ignorar arquivos que não devem ser rastreados (arquivos temporários, dependências volumosas, variáveis de ambiente e arquivos confidenciais).
-
-### Exemplo Prático de `.gitignore`:
-
-```gitignore
-# Arquivos de Sistema Operacional
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Variáveis de ambiente e credenciais (NUNCA versione arquivos .env!)
-.env
-.env.local
-*.pem
-*.key
-
-# Dependências de Projetos
-node_modules/
-vendor/
-venv/
-__pycache__/
-
-# Logs e arquivos de depuração
-*.log
-npm-debug.log*
-yarn-debug.log*
-
-# Configurações de IDEs locais
-.vscode/
-.idea/
-*.suo
-*.user
-```
-
----
-
-## 📝 Manual de Markdown para o GitHub
-
-O Markdown é a linguagem padrão utilizada para formatar arquivos de documentação (`README.md`), *Issues* e *Pull Requests*.
-
-### Guia Rápido de Sintaxe:
+### Títulos e Linhas Divisórias
+Use o símbolo `#` antes do texto. Quanto mais `#`, menor fica o título (vai de 1 até 6):
 
 ```markdown
-# Título 1 (Heading 1)
-## Título 2 (Heading 2)
-### Título 3 (Heading 3)
+# Título Principal (Nível 1)
+## Subtítulo (Nível 2)
+### Título Menor (Nível 3)
+```
 
-**Texto em Negrito** ou __Negrito__
-*Texto em Itálico* ou _Itálico_
-~~Texto Tachado / Riscado~~
+Para criar uma linha horizontal separando assuntos, use três traços (`---`) ou três asteriscos (`***`).
 
-> Bloco de citação de destaque.
+---
 
-- Item não ordenado 1
-- Item não ordenado 2
-  - Subitem indentado
+### Formatação de Texto (Negrito, Itálico e Riscado)
+Lembre-se de **não deixar espaço** entre os símbolos e a palavra:
 
+| Como você escreve | Como aparece na tela |
+| :--- | :--- |
+| `**Texto em negrito**` ou `__negrito__` | **Texto em negrito** ou __negrito__ |
+| `*Texto em itálico*` ou `_itálico_` | *Texto em itálico* ou _itálico_ |
+| `~~Texto riscado~~` | ~~Texto riscado~~ |
+| `__*Negrito e itálico juntos*__` | __*Negrito e itálico juntos*__ |
+
+---
+
+### Listas e Caixinhas de Tarefas
+
+**Lista numerada** (basta colocar números seguidos de ponto; o GitHub organiza a ordem sozinho):
+```markdown
 1. Primeiro passo
 2. Segundo passo
 3. Terceiro passo
+```
 
-- [x] Tarefa concluída
-- [ ] Tarefa pendente
+**Lista com marcadores** (use `*` ou `-` seguido de um espaço):
+```markdown
+- Item da lista
+- Outro item
+  - Subitem (dê 2 ou 3 espaços antes do traço)
+```
 
-[Texto do Link](https://github.com)
-![Texto Alternativo da Imagem](caminho/ou/url/imagem.png)
+**Lista de tarefas** (use `- [ ]` para pendente e `- [x]` para concluída):
+- [x] Criar conta no GitHub
+- [x] Clonar o repositório para o computador
+- [ ] Dominar todas as marcações em Markdown
 
-`codigo_em_linha`
+---
+
+### Links e Imagens
+
+A estrutura é parecida; a única diferença é que a imagem começa com um ponto de exclamação (`!`):
+
+* **Para criar um link:** `[Texto que aparece](https://link-do-site.com)`
+  * Exemplo na prática: [Visitar meu perfil no GitHub](https://github.com/Tonjr12)
+* **Para mostrar uma imagem:** `![Descrição da imagem](https://link-da-imagem.com/foto.png)`
+
+---
+
+### Trechos de Código
+
+* **Comando curto no meio da frase:** coloque entre crases simples (`` ` ``).
+  * Exemplo: Use o comando `git status` para ver o estado da pasta.
+* **Bloco de código com várias linhas:** coloque três crases (`` ``` ``) antes e depois do código:
+
+```python
+nome = "Tonjr12"
+print(f"Olá, {nome}! Bem-vindo ao GitHub.")
 ```
 
 ---
 
-## 🏷️ Boas Práticas: Conventional Commits
+### Citações, Emojis e Símbolos
 
-Manter mensagens de commit claras e padronizadas facilita a leitura do histórico e a automação de releases.
+* **Citação:** use o sinal `>` no início da linha:
+  > "Decidir o que não fazer é tão importante quanto decidir o que fazer." — Steve Jobs
 
-| Prefixo | Significado | Exemplo |
-| :--- | :--- | :--- |
-| `feat:` | Uma nova funcionalidade adicionada ao projeto | `feat: adicionar autenticação via OAuth2` |
-| `fix:` | Correção de um bug ou erro no código | `fix: corrigir cálculo de desconto no checkout` |
-| `docs:` | Mudanças exclusivamente na documentação | `docs: atualizar manual de comandos no README` |
-| `style:` | Alterações visuais/formatação que não alteram lógica | `style: aplicar indentação e remover ponto e vírgula` |
-| `refactor:` | Refatoração de código sem alterar comportamento | `refactor: simplificar função de validação de CPF` |
-| `test:` | Adição ou ajuste de testes automatizados | `test: criar testes unitários para a classe de usuário` |
-| `chore:` | Tarefas rotineiras, dependências ou ferramentas de build | `chore: atualizar versão do pacote react para 18.2` |
+* **Emojis:** coloque o nome do emoji entre dois-pontos (`:`):
+  * `:rocket:` fica :rocket:
+  * `:white_check_mark:` fica :white_check_mark:
+  * `:clap:` fica :clap:
+
+* **Mostrar o símbolo sem formatar:** coloque uma barra invertida (`\`) antes do símbolo. Por exemplo, escrever `\# Título` mostra o `#` na tela em vez de transformar em título.
 
 ---
 
-## 🌐 GitHub Pages e Hospedagem Gratuita
+### Tabelas Simples
 
-O GitHub Pages permite hospedar sites estáticos (HTML, CSS e JavaScript) diretamente a partir de um repositório público:
+Use barras em pé (`|`) para separar as colunas e traços (`---`) na segunda linha para separar o cabeçalho:
 
-1. Acesse o seu repositório no GitHub.
-2. Clique na aba **Settings** (Configurações).
-3. Na barra lateral esquerda, clique em **Pages**.
-4. Em **Build and deployment > Source**, selecione **Deploy from a branch**.
-5. Escolha a branch (geralmente `main` ou `master`) e a pasta raiz (`/ (root)` ou `/docs`).
-6. Clique em **Save**.
-7. O endereço público ficará acessível em: `https://<seu-usuario>.github.io/<nome-do-repositorio>/`.
+```markdown
+| Aula | Assunto | Situação |
+| :--- | :---: | ---: |
+| 01 | Git e GitHub | Concluída |
+| 02 | Linguagem Markdown | Concluída |
+```
 
----
+**Resultado na tela:**
 
-## 🤝 Colaboração Open-Source: Forks e Pull Requests
+| Aula | Assunto | Situação |
+| :--- | :---: | ---: |
+| 01 | Git e GitHub | Concluída |
+| 02 | Linguagem Markdown | Concluída |
 
-O fluxo padrão de contribuição para projetos de terceiros segue estes 5 passos:
-
-1. **Fork:** No GitHub, clique no botão **Fork** (canto superior direito) do repositório original para criar uma cópia em sua conta.
-2. **Clone:** Clone o seu fork para a sua máquina local:
-   ```bash
-   git clone [https://github.com/Tonjr12/git-github.git](https://github.com/Tonjr12/git-github.git)
-   ```
-3. **Branch:** Crie uma branch específica para sua contribuição:
-   ```bash
-   git checkout -b feature/minha-melhoria
-   ```
-4. **Commit & Push:** Faça suas melhorias, comite e suba para o seu fork:
-   ```bash
-   git add .
-   git commit -m "feat: adicionar documentação detalhada de comandos"
-   git push -u origin feature/minha-melhoria
-   ```
-5. **Pull Request (PR):** Vá até a página do repositório no GitHub, clique em **Compare & pull request**, descreva o que foi feito e envie para revisão do proprietário do projeto original.
+*(Dica: os dois-pontos `:` na segunda linha definem o alinhamento: `:---` à esquerda, `:---:` centralizado e `---:` à direita).*
 
 ---
 
-## 👨‍🏫 Créditos e Referências
+## 🤝 5. O que é Fork e Pull Request?
 
-Este material foi compilado e estruturado a partir dos ensinamentos de:
+* **Fork (Garfo):** É quando você pega o repositório público de outra pessoa e cria uma **cópia independente dentro da sua conta**. Você pode alterar tudo nessa cópia sem afetar o projeto original.
+* **Pull Request (Solicitação de Pull):** É quando você faz uma melhoria na sua cópia e envia um pedido para o dono do repositório original aceitar e juntar a sua ideia no projeto dele.
 
-- **Professor Gustavo Guanabara** — [Canal Curso em Vídeo no YouTube](https://www.youtube.com/c/CursoemV%C3%ADdeo)
-- **Curso Oficial de Git e GitHub:** [Playlist no YouTube](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
-- **Repositório Base Original:** [gustavoguanabara/git-github](https://github.com/gustavoguanabara/git-github)
-- **Plataforma Oficial:** [Curso em Vídeo](https://www.cursoemvideo.com/)
+---
+
+## 👨‍🏫 6. Créditos e Materiais Originais
+
+Todo o aprendizado deste guia foi baseado nos conteúdos gratuitos disponibilizados pelo **Professor Gustavo Guanabara**:
+
+- **Playlist Oficial no YouTube:** [Curso de Git e GitHub - Curso em Vídeo](https://www.youtube.com/playlist?list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA)
+- **Repositório Original do Curso:** [gustavoguanabara/git-github](https://github.com/gustavoguanabara/git-github)
+- **Plataforma de Cursos:** [Curso em Vídeo](https://www.cursoemvideo.com/)
 
 ---
 
 <div align="center">
-  Desenvolvido por <b>Tonjr12</b> 💻🚀
+  Organizado e adaptado por <b>Tonjr12</b> 🚀
 </div>
